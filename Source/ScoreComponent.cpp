@@ -30,7 +30,7 @@
 #include "ScoreComponent.h"
 
 using namespace lomse;
-
+ 
 class LomseScoreComponent : public ScoreComponent, public PianoController::Listener,
 	public Button::Listener
 {
