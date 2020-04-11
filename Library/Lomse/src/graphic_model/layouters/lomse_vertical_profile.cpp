@@ -121,9 +121,12 @@ void VerticalProfile::update(GmoShape* pShape, int idxStaff)
         if (pNote->is_in_chord() && pNote->is_shape_chord_base_note())
         {
             GmoShapeNote* pFlagNote = static_cast<GmoShapeChordBaseNote*>(pNote)->get_flag_note();
-            update_shape(pFlagNote->get_stem_shape(), idxStaff);
-            update_shape(pFlagNote->get_flag_shape(), idxStaff);
-            return;
+            if (pFlagNote)
+            {
+				update_shape(pFlagNote->get_stem_shape(), idxStaff);
+				update_shape(pFlagNote->get_flag_shape(), idxStaff);
+				return;
+            }
         }
 
         //if arrives here, it is a beamed note.
